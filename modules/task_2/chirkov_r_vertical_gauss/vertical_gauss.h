@@ -3,7 +3,7 @@
 #define MODULES_TASK_1_CHIRKOV_R_MATRIX_MAX_VALUE_MATRIX_MAX_VALUE_H_
 #include <vector>
 
-double ** generateMatrix(int size);
+std::vector<std::vector<double> > generateMatrix(int size);
 std::vector<double> sequentialGauss(std::vector<std::vector<double> >  matrix, std::vector<double> vector, int size);
 //int parallelFind(std::vector<int> matrix, int rows, int cols);
 

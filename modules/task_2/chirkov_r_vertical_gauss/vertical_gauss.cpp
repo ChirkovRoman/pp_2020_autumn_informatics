@@ -1,20 +1,19 @@
 // Copyright 2020 Chirkov Roman
 #include <mpi.h>
+#include <math.h>
 #include <iostream>
 #include <vector>
 #include <ctime>
 #include <random>
 #include "../../../modules/task_2/chirkov_r_vertical_gauss/vertical_gauss.h"
 
-double **generateMatrix(int size)
+std::vector<std::vector<double> > generateMatrix(int size)
 {
-    double **matrix;
-    matrix = new double * [size];
+    std::vector<std::vector<double> > matrix(size, std::vector<double>(size));
     std::mt19937 gen;
     gen.seed(static_cast<unsigned int>(time(0)));
     for (int i = 0; i < size; i++)
     {
-        matrix[i] = new double[size];
         for (int j = 0; j < size; j++)
         {
             matrix[i][j] = gen();
@@ -77,7 +76,7 @@ std::vector<double> sequentialGauss(std::vector<std::vector<double> >  matrix, s
 		}
 		k++;
 	}
-  // обратная подстановка
+	// обратная подстановка
 	for (k = size - 1; k >= 0; k--) {
 		x[k] = vector[k];
 		for (int i = 0; i < k; i++) {

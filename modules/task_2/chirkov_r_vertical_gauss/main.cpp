@@ -13,10 +13,7 @@ TEST(max_value, Test_sequential) {
 
     if (rank == 0) {
         const int size = 3;
-		std::vector<double> x(size);/*
-		x = new double[size];
-        double **matrix;
-		matrix = new double *[size];*/
+		std::vector<double> x(size);
 		std::vector<std::vector<double> > matrix = {
 			{2, -3, 7},
 			{-4, 6, -2},
