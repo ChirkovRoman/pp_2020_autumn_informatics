@@ -7,7 +7,7 @@
 #include <random>
 #include "./vertical_gauss.h"
 
-TEST(max_value, Test_staticMatrix) {
+TEST(max_value, Test_sequential) {
     int rank;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
@@ -18,19 +18,21 @@ TEST(max_value, Test_staticMatrix) {
         double **matrix;
 		matrix = new double *[size];*/
 		std::vector<std::vector<double> > matrix = {
-			{1, 4, 1},
-			{3, 2, 2},
-			{4, 5, 6}
+			{2, -3, 7},
+			{-4, 6, -2},
+			{1, 4, -1}
 		};
 		//double * vector;
-		std::vector<double> vector = {2, 4, 6};
+		std::vector<double> vector = {17, 2, 6};
 		x = sequentialGauss(matrix, vector, size);
 		
 		for(int i = 0; i < size; i++){
 			std::cout << x[i] << " ";
 		}
 		std::cout << std::endl;
-        ASSERT_EQ(9, 9); //переделать
+		
+		std::vector<double> staticResult = {1, 2, 3};
+        ASSERT_EQ(x, staticResult); //переделать
     } else {
        
     }
