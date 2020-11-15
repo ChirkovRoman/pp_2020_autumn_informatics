@@ -33,8 +33,6 @@ TEST(max_value, Test_sequential) {
 		
 		std::vector<double> staticResult = {1, 2, 3};
         ASSERT_EQ(x, staticResult); //переделать
-    } else {
-       
     }
 }
 /*
